@@ -76,6 +76,12 @@ public class StringExplorer{
         String demoTrimString = " Hello world, welcome to java ";
         String trimString = demoTrimString.trim();//deletes leading and trailing spaces
         out.println("Before trimming:"+demoTrimString+" Length= "+demoTrimString.length()+", After trimming:"+trimString+", Length: "+trimString.length() );
+     
+        
+        String a = "ABC";
+        String b = "BCD";
+        
+        out.println(a.compareTo(b));
         
     }
     

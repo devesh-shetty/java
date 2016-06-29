@@ -82,6 +82,9 @@ public class StringExplorer{
         String b = "BCD";
         
         out.println(a.compareTo(b));
+     
+        char ch[] = {'a','b','c'};
+        String charString = new String(ch);
         
     }
     

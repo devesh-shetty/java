@@ -81,7 +81,10 @@ public class StringExplorer{
         String a = "ABC";
         String b = "BCD";
         
-        out.println(a.compareTo(b));
+        String A = "ABC";
+        
+        out.println(a.compareTo(b));//will give -1
+        out.println(a.compareTo(A));//will give 0
      
         char ch[] = {'a','b','c'};
         String charString = new String(ch);

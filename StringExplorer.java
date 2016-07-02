@@ -80,12 +80,18 @@ public class StringExplorer{
         
         String a = "ABC";
         String b = "BCD";
-        
+        String c = "abc";
         String A = "ABC";
+        
+        String temp = "ZYS";
         
         out.println(a.compareTo(b));//will give -1
         out.println(a.compareTo(A));//will give 0
-     
+        out.println(a.compareTo(c));//will give -32
+        out.println(b.compareTo(a));//will give 1
+        out.println(a.compareTo(temp));
+        out.println(c.compareTo(temp));
+        
         char ch[] = {'a','b','c'};
         String charString = new String(ch);
         

@@ -95,6 +95,11 @@ public class StringExplorer{
         char ch[] = {'a','b','c'};
         String charString = new String(ch);
         
+        for(char x : ch){
+            out.print(x+" ");
+        }
+        
+        out.println();
     }
     
 }

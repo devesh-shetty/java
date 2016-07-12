@@ -16,6 +16,7 @@ class Main{
         out.println(n+" << 1 = "+ (n << 1));
         out.println(n+" >> 1 = "+ (n >> 1));
         out.println(n+" << 2 = "+ (n << 2));
+        out.println(n+" >>> 1 = "+ (n >>> 1));
         
         //To check if a number has exactly one 1 
         int bitNo = 64;

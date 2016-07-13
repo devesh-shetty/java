@@ -100,6 +100,15 @@ public class StringExplorer{
         }
         
         out.println();
+        
+        String one = new String("TEST");
+        String two = "TEST";
+        String three = one.intern();//returns the string from pool
+        out.println(one == two);//false
+        out.println(one == three);//false
+        out.println(two == three);//true
+        
+        
     }
     
 }

@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.Arrays;
-
+import java.util.StringTokenizer;
 /**
 *This program aims to explore the String and its different methods in JAVA
 *@author: Devesh Shetty
@@ -109,6 +109,9 @@ public class StringExplorer{
         out.println(two == three);//true
         
         
+        StringBuffer buffer = new StringBuffer("I am a ");
+        buffer.append("String Buffer");
+        out.println(buffer);
     }
     
 }

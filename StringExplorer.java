@@ -112,6 +112,9 @@ public class StringExplorer{
         StringBuffer buffer = new StringBuffer("I am a ");
         buffer.append("String Buffer");
         out.println(buffer);
+        
+        buffer.insert(2,"Voila!!!");
+        out.println(buffer);
     }
     
 }

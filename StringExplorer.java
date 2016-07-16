@@ -115,6 +115,12 @@ public class StringExplorer{
         
         buffer.insert(2,"Voila!!!");
         out.println(buffer);
+        
+        //Converting String to StringBuffer
+        StringBuffer oneBuffer = new StringBuffer(one);
+        oneBuffer.insert(0,"Buffer ");
+        out.println(oneBuffer);
+        
     }
     
 }

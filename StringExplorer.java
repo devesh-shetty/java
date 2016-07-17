@@ -121,6 +121,10 @@ public class StringExplorer{
         oneBuffer.insert(0,"Buffer ");
         out.println(oneBuffer);
         
+        
+        StringBuilder builder = new StringBuilder(one);
+        builder.reverse();
+        out.println(builder);
     }
     
 }

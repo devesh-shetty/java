@@ -125,6 +125,12 @@ public class StringExplorer{
         StringBuilder builder = new StringBuilder(one);
         builder.reverse();
         out.println(builder);
+        
+        //getting the int value of a character
+        int charValue = (int)'r' - 'a';
+        out.println("Int value of r is "+charValue);
+        
+        
     }
     
 }

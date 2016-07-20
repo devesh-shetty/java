@@ -98,8 +98,9 @@ public class StringExplorer{
         for(char x : ch){
             out.print(x+" ");
         }
-        
         out.println();
+
+        out.println("Does "+a+" end with C? "+a.endsWith("C"));
         
         String one = new String("TEST");
         String two = "TEST";
@@ -116,6 +117,7 @@ public class StringExplorer{
         buffer.insert(2,"Voila!!!");
         out.println(buffer);
         
+        
         //Converting String to StringBuffer
         StringBuffer oneBuffer = new StringBuffer(one);
         oneBuffer.insert(0,"Buffer ");
@@ -129,6 +131,8 @@ public class StringExplorer{
         //getting the int value of a character
         int charValue = (int)'r' - 'a';
         out.println("Int value of r is "+charValue);
+        
+     
         
         
     }

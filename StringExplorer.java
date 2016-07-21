@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
+import java.util.Random;
 /**
 *This program aims to explore the String and its different methods in JAVA
 *@author: Devesh Shetty
@@ -132,7 +133,8 @@ public class StringExplorer{
         int charValue = (int)'r' - 'a';
         out.println("Int value of r is "+charValue);
         
-     
+        Random random = new Random();
+        out.println(String.format("The random value: %12d",random.nextInt()));
         
         
     }

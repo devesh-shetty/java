@@ -119,10 +119,7 @@ public class StringExplorer{
         out.println(buffer);
         
         
-        //Converting String to StringBuffer
-        StringBuffer oneBuffer = new StringBuffer(one);
-        oneBuffer.insert(0,"Buffer ");
-        out.println(oneBuffer);
+        
         
         
         StringBuilder builder = new StringBuilder(one);
@@ -136,7 +133,10 @@ public class StringExplorer{
         Random random = new Random();
         out.println(String.format("The random value: %12d",random.nextInt()));
         
-        
+        //Converting String to StringBuffer
+        StringBuffer oneBuffer = new StringBuffer(one);
+        oneBuffer.insert(0,"Buffer ");
+        out.println(oneBuffer);
     }
     
 }

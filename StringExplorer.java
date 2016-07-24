@@ -138,6 +138,12 @@ public class StringExplorer{
         byte[] tempByte = s.getBytes();
         Arrays.toString(tempByte);
         
+        char[] tempChar = {'a','b','c','d','e','f'};
+        String strFromCharArray = "";
+        out.println(strFromCharArray.copyValueOf(tempChar));
+        //data, offset, count
+        out.println(strFromCharArray.copyValueOf(tempChar, 2, 3));
+        
     }
     
 }

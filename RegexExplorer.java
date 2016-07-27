@@ -13,6 +13,8 @@ class RegexExplorer{
         PrintStream out = System.out;
         //check for a single character before 'g'
         out.println(Pattern.matches(".g", "rg"));
+        //d or s occurs once or not at all
+        System.out.println(Pattern.matches("[ds]?", "d"));
     }
     
 }

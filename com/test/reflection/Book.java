@@ -1,4 +1,4 @@
-package com.text.reflection;
+package com.test.reflection;
 
 /**
 *A simple class 

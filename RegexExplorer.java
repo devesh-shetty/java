@@ -15,6 +15,7 @@ class RegexExplorer{
         out.println(Pattern.matches(".g", "rg"));
         //d or s occurs once or not at all
         System.out.println(Pattern.matches("[ds]?", "d"));
+        
     }
     
 }

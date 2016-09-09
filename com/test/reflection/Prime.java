@@ -1,6 +1,7 @@
 package com.test.reflection;
 
 import com.test.reflection.custom.Main;
+import com.test.reflection.custom.MainWithPriority;
 import java.util.Scanner;
 import java.util.Arrays;
 /**
@@ -10,10 +11,17 @@ import java.util.Arrays;
 */
 public class Prime{
     
+    @MainWithPriority(priority = 1)
+    public void printCustomInfo(){
+        System.out.println("Printing Primes using Sieve of Eratosthenes");
+    }
+    
+    
     /**
     *This method will use Sieve of Eratosthenes technique
     */
     @Main
+    @MainWithPriority(priority = 2)
     public void printPrime(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the value of n");

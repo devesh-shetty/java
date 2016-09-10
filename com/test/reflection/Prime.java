@@ -2,6 +2,7 @@ package com.test.reflection;
 
 import com.test.reflection.custom.Main;
 import com.test.reflection.custom.MainWithPriority;
+import com.test.reflection.custom.Inject;
 import java.util.Scanner;
 import java.util.Arrays;
 /**
@@ -11,8 +12,13 @@ import java.util.Arrays;
 */
 public class Prime{
     
+    //This field will be injected with the help of a tool
+    @Inject
+    private QuotesGenerator qg;
+    
     @MainWithPriority(priority = 1)
     public void printCustomInfo(){
+        System.out.println(qg.getRandomQuote());
         System.out.println("Printing Primes using Sieve of Eratosthenes");
     }
     

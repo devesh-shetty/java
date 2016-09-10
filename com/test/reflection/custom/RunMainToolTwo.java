@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 import java.util.TreeMap;
 import java.util.Collection;
+import java.lang.reflect.Field;
 /**
 *This class acts as a custom tool to run any methods annotated with @MainWithPriority within the specified className
 *Methods are invoked in the order of their priority
@@ -41,6 +42,31 @@ public class RunMainToolTwo{
             e.printStackTrace();
             return;
         }
+        
+        Field[] fields = cls.getDeclaredFields();
+        for(Field field : fields){
+            //get the annotation type
+            Inject inject = field.getAnnotation(Inject.class);
+            //inject will be null if the field is not annotated with @Inject
+            if(inject != null){
+                //get the field type
+                Class<?> type = field.getType();
+                try{
+                    //create an instance of the fieldType
+                    Object fieldObj = type.newInstance();
+                    //set the field as accessible
+                    field.setAccessible(true);
+                    //set the field
+                    field.set(o, fieldObj);
+                }
+                catch(InstantiationException | IllegalAccessException e){
+                    System.out.println("Error in creating the instance of the field. Check if an empty constructor exists ");
+                    e.printStackTrace();
+                    return;
+                }
+            }
+        }
+        
         
         Method[] methods = cls.getMethods();
         if(methods.length == 0){

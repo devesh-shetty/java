@@ -2,6 +2,7 @@ package com.test.java8;
 
 import java.util.List;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
 *Exploring new JAVA8 features
@@ -73,8 +74,40 @@ public class NewFeatures{
             .forEach((item) -> System.out.print(item+" ") );//Terminal operation
         System.out.println();
         
+        //Method References
+        //pass the method reference
+        //static method reference syntax-> ContainingClass ::  staticMethodName
+        //the below is a static method reference
+        list.forEach( NewFeatures :: printSquaresAndCubes);
         
+        List<Integer> oddCubes = list.stream()//convert list to a stream
+                                    .filter( (item) -> (item & 1) == 1 )//intermediate operation
+                                    .map( (item) -> item * item * item)//intermediate operation
+                                    .collect( (Collectors.toList()));//terminal operation
         
+        //instance method reference syntax  -> containingObject :: instanceMethodName
+        //the below is an instance method reference
+        oddCubes.forEach( System.out :: println);
+        
+        //calculate the average of even numbers in the list
+        System.out.println( list.stream()//convert to a stream
+                                .filter( (item) -> (item & 1) == 0)//intermediate operation 
+                                .mapToInt((item) -> item)//intermediate operation - convert to an intStream
+                                .average()//intStream provides us with utility methods like average
+                          );
         
     }
+    
+    private static void printSquaresAndCubes(Integer item){
+        
+        if( (item & 1) == 0){
+            //even nos
+            System.out.println(item * item);
+        }else{
+            //odd nos
+            System.out.println(item * item * item);
+        }
+        
+    }
+    
 }

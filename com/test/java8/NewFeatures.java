@@ -62,5 +62,19 @@ public class NewFeatures{
         ListUtil.forEach(squares, (item) -> System.out.print(item+" "));
         System.out.println();
         
+        //List has a method forEach method that takes a Consumer
+        list.forEach((item) -> System.out.print(item + " " ));
+        System.out.println();
+        
+        //convert the list to a stream to perform a sequence of operations
+        list.stream()
+            .filter( (item) -> (item & 1) == 0)//Intermediate operation - get all even elements in the list
+            .map( (item) -> item * item) //Intermediate operation - square the elements from previous stream
+            .forEach((item) -> System.out.print(item+" ") );//Terminal operation
+        System.out.println();
+        
+        
+        
+        
     }
 }

@@ -126,6 +126,12 @@ public class NewFeatures{
         System.out.println("List data:\n Sum: "+stats.getSum() +" Count: "+stats.getCount() + " Average: "+stats.getAverage()
                                                 +" Min: "+stats.getMin()+" Max: "+stats.getMax());
         
+        //get the sum of all the even numbers in the list
+        int sum = list.stream()
+                        .filter( item -> (item & 1 ) == 0)
+                        .mapToInt(item -> item)
+                        .sum();
+        System.out.println("The sum of odd numbers: "+sum);
         
     }
     

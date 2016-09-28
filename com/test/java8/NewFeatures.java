@@ -3,6 +3,8 @@ package com.test.java8;
 import java.util.List;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.OptionalDouble;
+import java.util.IntSummaryStatistics;
 
 /**
 *Exploring new JAVA8 features
@@ -93,8 +95,37 @@ public class NewFeatures{
         System.out.println( list.stream()//convert to a stream
                                 .filter( (item) -> (item & 1) == 0)//intermediate operation 
                                 .mapToInt((item) -> item)//intermediate operation - convert to an intStream
-                                .average()//intStream provides us with utility methods like average
+                                .average()//intStream provides us with utility methods like average (terminal operation)
                           );
+        
+        //store and display the average of odd numbers in the list
+        OptionalDouble optionalDoubleAverage = list.stream()
+                                                .filter((item) -> (item & 1) == 1 )
+                                                .mapToInt( item -> item )// if the lambda takes only a single argument, we can drop the ()
+                                                //i.e. instead of (item) -> item, we can use the one above
+                                                .average();//terminal operation
+        
+        //if the list is empty then instead of returning null, an OptionalDouble object is returned
+        // which has no value
+        //It is based on "Null Object Pattern" wherein instead of returning a null, a object with no value is returned
+        if(optionalDoubleAverage.isPresent()){
+            //value is present
+            System.out.println("The average of odd numbers in the list: "+optionalDoubleAverage.getAsDouble());
+        }
+        else{
+            //list is empty
+            System.out.println("The list is empty");
+        }
+        
+        IntSummaryStatistics stats = list.stream()
+                                        .mapToInt( item -> item )//intermediate operation
+                                        .summaryStatistics();//terminal operation
+        
+        System.out.println(stats);
+        
+        System.out.println("List data:\n Sum: "+stats.getSum() +" Count: "+stats.getCount() + " Average: "+stats.getAverage()
+                                                +" Min: "+stats.getMin()+" Max: "+stats.getMax());
+        
         
     }
     

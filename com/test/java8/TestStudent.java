@@ -65,14 +65,14 @@ public class TestStudent{
         
         //Name of all male candidates
         studentList.stream()
-            .filter( student -> student.getGender() == StudentGender.MALE)
+            .filter( Student :: isMale )
             .forEach( student -> System.out.print(student.getName()+" "));
         System.out.println();
         
         //name of all female candidates with age > 20
         List<Student> femalesAgeGreater20 = studentList.stream()
-                                                    .filter( student -> student.getGender() == StudentGender.FEMALE)
-                                                    .filter( student -> student.getAge() > 20)
+                                                    .filter( Student :: isFemale )
+                                                    .filter( Student :: isAgeGreaterThan20 )
                                                     .collect( Collectors.toList() );
         femalesAgeGreater20.forEach(System.out :: println);
         System.out.println();
@@ -80,7 +80,7 @@ public class TestStudent{
         //Average age of all males in the class
         //OptionalDouble uses the NULL object pattern
         OptionalDouble optionalAverage = studentList.stream()
-                                                    .filter( student -> student.getGender() == StudentGender.MALE)
+                                                    .filter( Student :: isMale )
                                                     .mapToInt( Student :: getAge)
                                                     .average();
         
@@ -92,7 +92,7 @@ public class TestStudent{
         
         //get the maximum score secured by a female
         OptionalDouble optionalMax = studentList.stream()
-                                            .filter( student -> student.getGender() == StudentGender.FEMALE)
+                                            .filter( Student :: isFemale )
                                             .mapToDouble( Student :: getMarks)
                                             .max();
         

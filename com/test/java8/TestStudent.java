@@ -59,6 +59,12 @@ public class TestStudent{
         
         map.forEach((key, value) -> System.out.println(key+": "+value));
         
+        //Name of all male candidates
+        studentList.stream()
+            .filter( student -> student.getGender() == StudentGender.MALE)
+            .forEach( student -> System.out.print(student.getName()+" "));
+        System.out.println();
+        
         
     }
     

@@ -7,6 +7,8 @@ import com.test.java8.student.Student;
 import com.test.java8.student.StudentGender;
 import java.util.stream.Collectors;
 import java.util.HashMap;
+import java.util.List;
+import java.util.OptionalDouble;
 
 /**
 *@author: Devesh Shetty
@@ -32,6 +34,8 @@ public class TestStudent{
             Student student = new Student(age+"_"+gender, age, marks, gender);
             studentList.add(student);
         }
+        
+        studentList.forEach(System.out :: println);
         
         //A typical way of storing data in a map
 //        HashMap<String, String> map = new HashMap<String, String>();
@@ -65,7 +69,40 @@ public class TestStudent{
             .forEach( student -> System.out.print(student.getName()+" "));
         System.out.println();
         
+        //name of all female candidates with age > 20
+        List<Student> femalesAgeGreater20 = studentList.stream()
+                                                    .filter( student -> student.getGender() == StudentGender.FEMALE)
+                                                    .filter( student -> student.getAge() > 20)
+                                                    .collect( Collectors.toList() );
+        femalesAgeGreater20.forEach(System.out :: println);
+        System.out.println();
         
+        //Average age of all males in the class
+        //OptionalDouble uses the NULL object pattern
+        OptionalDouble optionalAverage = studentList.stream()
+                                                    .filter( student -> student.getGender() == StudentGender.MALE)
+                                                    .mapToInt( Student :: getAge)
+                                                    .average();
+        
+        if(optionalAverage.isPresent()){
+            System.out.println("The average age of all males in the class: "+optionalAverage.getAsDouble());
+        }else{
+            System.out.println("No male in the class");
+        }
+        
+        //get the maximum score secured by a female
+        OptionalDouble optionalMax = studentList.stream()
+                                            .filter( student -> student.getGender() == StudentGender.FEMALE)
+                                            .mapToDouble( Student :: getMarks)
+                                            .max();
+        
+        if(optionalMax.isPresent()){
+            System.out.println("The maximum score secured by a female is "+optionalMax.getAsDouble());
+        }else{
+            System.out.println("No females exist in the class");
+        }
+        
+    
     }
     
 }

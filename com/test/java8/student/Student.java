@@ -34,6 +34,18 @@ public class Student{
         return gender;
     }
     
+    public boolean isMale(){
+        return this.gender == StudentGender.MALE;
+    }
+    
+    public boolean isFemale(){
+        return !isMale();
+    }
+    
+    public boolean isAgeGreaterThan20(){
+        return this.age > 20;
+    }
+    
     public String toString(){
         return "Student[name = "+name+", age= "+age+", marks= "+marks+", gender= "+gender+"]";
     }
